@@ -1,6 +1,6 @@
 $fn=3;
 
-union(){
+rotate([180,0,0]) union(){
 	translate([-4,-4,-4]) difference(){
 		translate([-1,-1,0]) cube([160,60,10]);
 		translate([0,0,-1]) cube([158,58,10]);
