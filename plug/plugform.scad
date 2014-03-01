@@ -6,21 +6,16 @@ module rcube(Size=[20,20,20],b=2)
 
 top=0;
 bottom=0;
-module plug(d,h){
-		union(){	
-		translate([0,0,1.4]){
-			cylinder(r1=d/2+0,r2=5,h=(3/4)*h,$fn=100);
+module plug(d,h,s,f){
+		hull(){	
+			translate([0,0,0]) cylinder(r1=d/2,r2=5,h=h,$fn=f);
+			translate([0,0,h]) sphere(5.1,$fn=f,center=true);
+			//translate([0,0,0]) rcylinder(h=5,r1=d/2,r2=d/2,$fn=f,cent);	
+			sphere(d/2, $fn=f);
+			translate([0,0,-d/2]) cylinder(r1=d/4,r2=d/3,h=10, $fn=f);
 		}
-		translate([0,0,((3/4)*h)+0.4]){
-			sphere(5.1,$fn=100,center=true);
-		}
-		translate([0,0,0]) rcylinder(h=5,r1=d/2,r2=d/2,$fn=100,cent);	
-		translate([0,0,-((1/3)*h)-9.2]){
-			cylinder(r2=d/2,r1=(d/2)*0.3,h=(3/7)*h,$fn=100);
-		}	
-		translate([0,0,-((1/3)*h)-36.8]) cylinder(r=d/2*0.5,h=40, $fn=100);
-		translate([0,0,-((1/3)*h)-41.7]) rcube(Size=[d,d/,10], $fn=10);
-		}
+		translate([0,0,-d]) cylinder(r=d/4,h=s, $fn=f);
+		translate([0,0,-d]) rcube(Size=[d,d/2,10], $fn=f);
 }
 
 
@@ -39,6 +34,8 @@ module negative(d,h){
 	
 }
 
-d=70;
-h=100;
-plug(d,h);
+d=70; //diameter of thickest part of head
+h=100;//height of upper part of head
+s=40; //length of shaft
+f=10; //higher value means higher resolution(around 100 should be high enough)
+plug(d,h,s,f);
