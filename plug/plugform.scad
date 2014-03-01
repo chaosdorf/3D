@@ -10,7 +10,7 @@ module plug(d,h,s,f){
 			translate([0,0,h]) sphere(5,$fn=f,center=true);
 			//translate([0,0,0]) rcylinder(h=5,r1=d/2,r2=d/2,$fn=f,cent);	
 			sphere(d/2, $fn=f);
-			translate([0,0,-d/2]) cylinder(r1=d/4,r2=d/3,h=10, $fn=f);
+			translate([0,0,-d/2]) cylinder(r1=d/4,r2=d/3,h=d/4, $fn=f);
 		}
 		translate([0,0,-d]) cylinder(r=d/4,h=s, $fn=f);
 		translate([0,0,-d]) rcube(Size=[d,d/2,10], $fn=f);
@@ -20,21 +20,21 @@ module plug(d,h,s,f){
 module negative(d,h,s,f){
 
 	translate([d,0,0])rotate([-90,0,0]) difference(){
-		translate([-d/2-5,0,-(h+d)/2+11]){ //z:+11 for foot(10)-1
-	 		cube(size=[d+10,d/2+5,h+s+d/2+12.5]);
+		rotate([0,180,0])translate([-d/2-5,0,-h-12.7]){ 
+	 		cube(size=[d+10,d/2+5,h+s+d/2+12]);
 		}
 		plug(d,h,s,f);
 	}
-	translate([-d,0,0])rotate([-90,180,0])
+	translate([-d,0,0])rotate([-90,0,0])
 	difference(){
-		translate([-d/2-5,-d/2-5,-(h+d)/2+11]) cube(size=[d+10,d/2+5,h+s+d/2+12.5]);
+		rotate([0,180,0])translate([-d/2-5,0,-h-12.7]) cube(size=[d+10,d/2+5,h+s+d/2+12.5]);
 		plug(d,h,s,f);
 	}
 	
 }
 
 d=70; //diameter of thickest part of head
-h=100;//height of upper part of head
+h=100;//height of upper part of head (don't go under 30)
 s=40; //length of shaft
-f=100; //higher value means higher resolution(around 100 should be high enough)
+f=10; //higher value means higher resolution(around 100 should be high enough)
 negative(d,h,s,f);
