@@ -30,7 +30,8 @@ module plug(d,h,s,f){
 }
 
 
-module negative(d,h,s,f){
+module negative(d,h,s,f,hs){
+	cs = hs - 2; // work around 3D printer inaccuracies and foo (cubes should be smaller than their respective holes)
 
 	translate([d,0,0])rotate([-90,0,0]) difference(){
 		rotate([0,180,0])translate([-d/2-5,0,-h-12.7]){ 
@@ -38,17 +39,17 @@ module negative(d,h,s,f){
 		}
 		union(){
 			plug(d,h,s,f);
-			translate([23,-4,-h/2]){
-				cube(size=[10,10,10]);
+			translate([d/2-hs,-hs/2,-d/2-s/4]){
+				cube(size=[hs,hs,hs]);
 			}
-			translate([-33,-4,-h/2]){
-				cube(size=[10,10,10]);
+			translate([-d/2,-hs/2,-d/2-s/4]){
+				cube(size=[hs,hs,hs]);
 			}
-			translate([23,-4,h-10]){
-				cube(size=[10,10,10]);
+			translate([d/2-hs,-hs/2,h]){
+				cube(size=[hs,hs,hs]);
 			}
-			translate([-33,-4,h-10]){
-				cube(size=[10,10,10]);
+			translate([-d/2,-hs/2,h]){
+				cube(size=[hs,hs,hs]);
 			}
 		}
 	}
@@ -57,25 +58,27 @@ module negative(d,h,s,f){
 			rotate([0,180,0])translate([-d/2-5,0,-h-12.7]) cube(size=[d+10,d/2+5,h+s+d/2+12.5]);
 			plug(d,h,s,f);
 		}
-		translate([22,-3,-h/2+1]){
-			cube(size=[8,8,8]);
+		// we need to substract/add 1 because of cs = hs - 2
+		translate([d/2-hs+1,-cs/2,-d/2-s/4+1]){
+			cube(size=[cs,cs,cs]);
 		}
-		translate([-32,-3,-h/2+1]){
-			cube(size=[8,8,8]);
+		translate([-d/2+1,-cs/2,-d/2-s/4+1]){
+			cube(size=[cs,cs,cs]);
 		}
-		translate([22,-3,h-9]){
-			cube(size=[8,8,8]);
+		translate([d/2-hs+1,-cs/2,h+1]){
+			cube(size=[cs,cs,cs]);
 		}
-		translate([-32,-3,h-9]){
-			cube(size=[8,8,8]);
+		translate([-d/2+1,-cs/2,h+1]){
+			cube(size=[cs,cs,cs]);
 		}
 	}
 }
 
-d=70; //diameter of thickest part of head
+d=70; //diameter of thickest part of head (must be >= 40)
 h=100;//height of upper part of head (don't go under 30)
 s=40; //length of shaft
 f=10; //higher value means higher resolution(around 100 should be high enough)
+hs=8; //size of the negative's positioning holes. There should be no need to change this.
 
 positive=0; //set to 1 to view the plug (as in, the positive) 
 
@@ -83,5 +86,5 @@ if (positive == 1) {
 	plug(d,h,s,f);
 }
 else {
-	negative(d,h,s,f);
+	negative(d,h,s,f,hs);
 }
