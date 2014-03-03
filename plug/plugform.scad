@@ -37,4 +37,12 @@ d=70; //diameter of thickest part of head
 h=100;//height of upper part of head (don't go under 30)
 s=40; //length of shaft
 f=10; //higher value means higher resolution(around 100 should be high enough)
-negative(d,h,s,f);
+
+positive=0; //set to 1 to view the plug (as in, the positive) 
+
+if (positive == 1) {
+	plug(d,h,s,f);
+}
+else {
+	negative(d,h,s,f);
+}
