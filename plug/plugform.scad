@@ -25,8 +25,8 @@ module plug(d,h,s,f){
 			sphere(d/2, $fn=f);
 			translate([0,0,-d/2]) cylinder(r1=d/4,r2=d/3,h=d/4, $fn=f);
 		}
-		translate([0,0,-d]) cylinder(r=d/4,h=s, $fn=f);
-		translate([0,0,-d]) rcube(Size=[d,d/2,10], $fn=f);
+		translate([0,0,-s-d/2]) cylinder(r=d/4,h=s+2, $fn=f);
+		translate([0,0,-s-d/2]) rcube(Size=[d,d/2,10], $fn=f);
 }
 
 
@@ -34,8 +34,8 @@ module negative(d,h,s,f,hs){
 	cs = hs - 2; // work around 3D printer inaccuracies and foo (cubes should be smaller than their respective holes)
 
 	translate([d,0,0])rotate([-90,0,0]) difference(){
-		rotate([0,180,0])translate([-d/2-5,0,-h-12.7]){ 
-	 		cube(size=[d+10,d/2+5,h+s+d/2+12]);
+		rotate([0,180,0])translate([-d/2-5,0,-h-10.5]){
+			cube(size=[d+10,d/2+5,h+s+d/2+15]);
 		}
 		union(){
 			plug(d,h,s,f);
@@ -55,7 +55,9 @@ module negative(d,h,s,f,hs){
 	}
 	translate([-d,0,0])rotate([-90,0,0]) union(){
 		difference(){
-			rotate([0,180,0])translate([-d/2-5,0,-h-12.7]) cube(size=[d+10,d/2+5,h+s+d/2+12.5]);
+			rotate([0,180,0])translate([-d/2-5,0,-h-10.5]){
+				cube(size=[d+10,d/2+5,h+s+d/2+15]);
+			}
 			plug(d,h,s,f);
 		}
 		// we need to substract/add 1 because of cs = hs - 2
@@ -76,7 +78,7 @@ module negative(d,h,s,f,hs){
 
 d=70; //diameter of thickest part of head (must be >= 40)
 h=100;//height of upper part of head (don't go under 30)
-s=40; //length of shaft
+s=40; //length of shaft (must be >= 10)
 f=10; //higher value means higher resolution(around 100 should be high enough)
 hs=8; //size of the negative's positioning holes. There should be no need to change this.
 
