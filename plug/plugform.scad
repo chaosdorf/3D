@@ -23,14 +23,40 @@ module negative(d,h,s,f){
 		rotate([0,180,0])translate([-d/2-5,0,-h-12.7]){ 
 	 		cube(size=[d+10,d/2+5,h+s+d/2+12]);
 		}
-		plug(d,h,s,f);
+		union(){
+			plug(d,h,s,f);
+			translate([23,-4,-h/2]){
+				cube(size=[10,10,10]);
+			}
+			translate([-33,-4,-h/2]){
+				cube(size=[10,10,10]);
+			}
+			translate([23,-4,h-10]){
+				cube(size=[10,10,10]);
+			}
+			translate([-33,-4,h-10]){
+				cube(size=[10,10,10]);
+			}
+		}
 	}
-	translate([-d,0,0])rotate([-90,0,0])
-	difference(){
-		rotate([0,180,0])translate([-d/2-5,0,-h-12.7]) cube(size=[d+10,d/2+5,h+s+d/2+12.5]);
-		plug(d,h,s,f);
+	translate([-d,0,0])rotate([-90,0,0]) union(){
+		difference(){
+			rotate([0,180,0])translate([-d/2-5,0,-h-12.7]) cube(size=[d+10,d/2+5,h+s+d/2+12.5]);
+			plug(d,h,s,f);
+		}
+		translate([22,-3,-h/2+1]){
+			cube(size=[8,8,8]);
+		}
+		translate([-32,-3,-h/2+1]){
+			cube(size=[8,8,8]);
+		}
+		translate([22,-3,h-9]){
+			cube(size=[8,8,8]);
+		}
+		translate([-32,-3,h-9]){
+			cube(size=[8,8,8]);
+		}
 	}
-	
 }
 
 d=70; //diameter of thickest part of head
