@@ -1,8 +1,21 @@
-module rcylinder(r1=10,r2=10,h=5,b=2) //creates cylinder with round corners and edges
-{translate([0,0,-h/2]) hull(){rotate_extrude() translate([r1-b,b,0]) circle(r = b); rotate_extrude() translate([r2-b, h-b, 0]) circle(r = b);}}
+module rcylinder(r1=10,r2=10,h=5,b=2){ //creates cylinder with round corners and edges
+	translate([0,0,-h/2]) hull(){
+		rotate_extrude() translate([r1-b,b,0]) circle(r = b);
+		rotate_extrude() translate([r2-b, h-b, 0]) circle(r = b);
+	}
+}
 
-module rcube(Size=[20,20,20],b=2)//creates cube with round corners and edges
-{hull(){for(x=[-(Size[0]/2-b),(Size[0]/2-b)]){for(y=[-(Size[1]/2-b),(Size[1]/2-b)]){for(z=[-(Size[2]/2-b),(Size[2]/2-b)]){ translate([x,y,z]) sphere(b);}}}}}
+module rcube(Size=[20,20,20],b=2){ //creates cube with round corners and edges
+	hull(){
+		for(x=[-(Size[0]/2-b),(Size[0]/2-b)]){
+			for(y=[-(Size[1]/2-b),(Size[1]/2-b)]){
+				for(z=[-(Size[2]/2-b),(Size[2]/2-b)]){
+					translate([x,y,z]) sphere(b);
+				}
+			}
+		}
+	}
+}
 
 module plug(d,h,s,f){
 		hull(){	
