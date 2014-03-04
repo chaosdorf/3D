@@ -33,7 +33,7 @@ module plug(d,h,s,f){
 module negative(d,h,s,f,hs){
 	cs = hs - 2; // work around 3D printer inaccuracies and foo (cubes should be smaller than their respective holes)
 
-	translate([d,0,0])rotate([-90,0,0]) difference(){
+	translate([0.65*d,0,0])rotate([-90,0,0]) difference(){
 		rotate([0,180,0])translate([-d/2-5,0,-h-10.5]){
 			cube(size=[d+10,d/2+5,h+s+d/2+15]);
 		}
@@ -53,7 +53,7 @@ module negative(d,h,s,f,hs){
 			}
 		}
 	}
-	translate([-d,0,0])rotate([-90,0,0]) union(){
+	translate([-0.65*d,0,0])rotate([-90,0,0]) union(){
 		difference(){
 			rotate([0,180,0])translate([-d/2-5,0,-h-10.5]){
 				cube(size=[d+10,d/2+5,h+s+d/2+15]);
