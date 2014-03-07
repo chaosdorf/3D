@@ -17,20 +17,25 @@ module rcube(Size=[20,20,20],b=2){ //creates cube with round corners and edges
 	}
 }
 
-module plug(d,h,sd,sh,f){
+module plug(d,h,sd,sh,rf,f){
 		hull(){	
 			translate([0,0,0]) cylinder(r1=d/2,r2=5,h=h,$fn=f);
 			translate([0,0,h]) sphere(5,$fn=f,center=true);
-			//translate([0,0,0]) rcylinder(h=5,r1=d/2,r2=d/2,$fn=f,cent);	
 			sphere(d/2, $fn=f);
 			translate([0,0,-d/2]) cylinder(r1=d/4,r2=d/3,h=d/4, $fn=f);
 		}
 		translate([0,0,-sh-d/2]) cylinder(r=sd/2,h=sh+d/2, $fn=f);
-		translate([0,0,-sh-d/2]) rcube(Size=[d+6,sd+10,10], $fn=f);
+		if (rf) {
+			scale([1,0.8,1]) translate([0,0,-sh-d/2])
+				rcylinder(h=10,r1=d/2+4,r2=d/2+4,$fn=f,center=true);
+		}
+		else {
+			translate([0,0,-sh-d/2]) rcube(Size=[d+6,sd+10,10], $fn=f);
+		}
 }
 
 
-module negative(d,h,sd,sh,f,hs){
+module negative(d,h,sd,sh,rf,f,hs){
 	cs = hs - 2; // work around 3D printer inaccuracies and foo (cubes should be smaller than their respective holes)
 
 	translate([0.5*d+8,0,0])rotate([-90,0,0]) difference(){
@@ -82,12 +87,13 @@ sd=0.6*d; //diameter of shaft (d/2 <= sd <= d-20)
 sh=40; //length of shaft (must be >= 10)
 f=10; //higher value means higher resolution(around 100 should be high enough)
 hs=8; //size of the negative's positioning holes. There should be no need to change this.
+rf=true; //set to true for a round foot. Recommended when using soft silicone <= 8 ShA.
 
-positive=0; //set to 1 to view the plug (as in, the positive) 
+positive=false; //set to true to view the plug (as in, the positive)
 
-if (positive == 1) {
-	plug(d,h,sd,sh,f);
+if (positive) {
+	plug(d,h,sd,sh,rf,f);
 }
 else {
-	negative(d,h,sd,sh,f,hs);
+	negative(d,h,sd,sh,rf,f,hs);
 }
