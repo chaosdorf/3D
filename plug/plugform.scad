@@ -78,7 +78,7 @@ module negative(d,h,sd,sh,f,hs){
 
 d=70; //diameter of thickest part of head (must be >= 40)
 h=100;//height of upper part of head (don't go under 30)
-sd=d/2; //diameter of shaft (d/2 <= sd <= d-20)
+sd=0.6*d; //diameter of shaft (d/2 <= sd <= d-20)
 sh=40; //length of shaft (must be >= 10)
 f=10; //higher value means higher resolution(around 100 should be high enough)
 hs=8; //size of the negative's positioning holes. There should be no need to change this.
