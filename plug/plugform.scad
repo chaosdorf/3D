@@ -26,11 +26,11 @@ module plug(d,h,sd,sh,rf,f){
 		}
 		translate([0,0,-sh-d/2]) cylinder(r=sd/2,h=sh+d/2, $fn=f);
 		if (rf) {
-			scale([1,0.8,1]) translate([0,0,-sh-d/2])
-				rcylinder(h=10,r1=d/2+4,r2=d/2+4,$fn=f,center=true);
+			scale([1,0.8,1]) translate([0,0,-sh-d/2-2.5])
+				rcylinder(h=15,r1=d/2+4,r2=d/2+4,$fn=f);
 		}
 		else {
-			translate([0,0,-sh-d/2]) rcube(Size=[d+6,sd+10,10], $fn=f);
+			translate([0,0,-sh-d/2-2.5]) rcube(Size=[d+6,sd+10,15], $fn=f);
 		}
 }
 
@@ -40,10 +40,10 @@ module negative(d,h,sd,sh,rf,f,hs){
 
 	translate([0.5*d+8,0,0])rotate([-90,0,0]) difference(){
 		rotate([0,180,0])translate([-d/2-5,0,-h-10.5]){
-			cube(size=[d+10,d/2+5,h+sh+d/2+15]);
+			cube(size=[d+10,d/2+5,h+sh+d/2+20]);
 		}
 		union(){
-			plug(d,h,sd,sh,f);
+			plug(d,h,sd,sh,rf,f);
 			translate([d/2-hs,-hs/2,-d/2-sh/4]){
 				cube(size=[hs,hs,hs]);
 			}
@@ -61,9 +61,9 @@ module negative(d,h,sd,sh,rf,f,hs){
 	translate([-0.5*d-8,0,0])rotate([-90,0,0]) union(){
 		difference(){
 			rotate([0,180,0])translate([-d/2-5,0,-h-10.5]){
-				cube(size=[d+10,d/2+5,h+sh+d/2+15]);
+				cube(size=[d+10,d/2+5,h+sh+d/2+20]);
 			}
-			plug(d,h,sd,sh,f);
+			plug(d,h,sd,sh,rf,f);
 		}
 		// we need to substract/add 1 because of cs = hs - 2
 		translate([d/2-hs+1,-cs/2,-d/2-sh/4+1]){
