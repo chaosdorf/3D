@@ -1,5 +1,3 @@
-
-
 module chaosknoten(){
 	translate([5.7,-6,1.6]) scale([7,7,1]) rotate([0,0,90])
 		linear_extrude(height = 1, center = true, convexity = 10)
@@ -16,6 +14,9 @@ module tafel(){
 			translate([0,i*32,8]) rotate([0,90,0]) cylinder(h=4*55, r=5, center=true, $fn=3);
 		}
 	}
+	for (i = [-1:2]){
+		translate([i*55-15,-20,6]) chaosknoten();
+	}
 }
 
 module giessform(){
@@ -30,9 +31,6 @@ module alles(gf){
 		tafel();
 		if (gf){
 			giessform();
-		}
-		for (i = [-1:2]){
-			translate([i*55-15,-20,6]) chaosknoten();
 		}
 	}
 }
