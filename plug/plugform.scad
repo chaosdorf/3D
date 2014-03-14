@@ -35,7 +35,7 @@ module plug(d,h,sd,sh,rf,f){
 }
 
 
-module negative(d,h,sd,sh,rf,f,hs){
+module negativeleft(d,h,sd,sh,rf,f,hs){
 	cs = hs - 2; // work around 3D printer inaccuracies and foo (cubes should be smaller than their respective holes)
 
 	translate([0.5*d+8,0,0])rotate([-90,0,0]) difference(){
@@ -58,6 +58,10 @@ module negative(d,h,sd,sh,rf,f,hs){
 			}
 		}
 	}
+}
+module negativeright(d,h,sd,sh,rf,f,hs){
+	cs = hs - 2; // work around 3D printer inaccuracies and foo (cubes should be smaller than their respective holes)
+
 	translate([-0.5*d-8,0,0])rotate([-90,0,0]) union(){
 		difference(){
 			rotate([0,180,0])translate([-d/2-5,0,-h-10.5]){
@@ -89,11 +93,16 @@ f=100; //higher value means higher resolution(around 100 should be high enough)
 hs=8; //size of the negative's positioning holes. There should be no need to change this.
 rf=true; //set to true for a round foot. Recommended when using soft silicone <= 8 ShA.
 
-positive=false; //set to true to view the plug (as in, the positive)
+negative1=true; // both false: build positive, both true: build negatives
+negative2=true; // only one true: build only one negative.
+                // Useful if both at once are too large for the 3D print bed
 
-if (positive) {
+if (!negative1 && !negative2) {
 	plug(d,h,sd,sh,rf,f);
 }
-else {
-	negative(d,h,sd,sh,rf,f,hs);
+if (negative1) {
+	negativeleft(d,h,sd,sh,rf,f,hs);
+}
+if (negative2) {
+	negativeright(d,h,sd,sh,rf,f,hs);
 }
