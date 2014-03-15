@@ -1,3 +1,5 @@
+use <../Write.scad>
+
 module chaosknoten(){
 	translate([5.7,-6,1.6]) scale([7,7,1]) rotate([0,0,90])
 		linear_extrude(height = 1, center = true, convexity = 10)
@@ -24,6 +26,8 @@ module giessform(){
 		cube([4*55+15,64+15,15], center=true);
 		translate([0,0,1.26]) cube([4*55+10,64+10,12.5], center=true);
 	}
+	translate([100,35,-1]) scale([0.8,0.8,1])
+		rotate([-90,180,0]) writecube("CCCD v1.1", [0,0,0], 0);
 }
 
 module alles(gf){
