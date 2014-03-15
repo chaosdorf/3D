@@ -6,12 +6,12 @@ module chaosknoten(){
 
 module tafel(){
 	difference() {
-		translate([0,0,2.75]) cube([4*55,64,9.5], center=true);
+		translate([0,0,2.75]) cube([4*55,66,9.5], center=true);
 		for (i = [-2:2]){
 			translate([i*55,0,8]) rotate([90,90,0]) cylinder(h=64, r=5, center=true, $fn=3);
 		}
 		for (i = [-1,1]){
-			translate([0,i*32,8]) rotate([0,90,0]) cylinder(h=4*55, r=5, center=true, $fn=3);
+			translate([0,i*33,8]) rotate([0,90,0]) cylinder(h=4*55, r=5, center=true, $fn=3);
 		}
 	}
 	for (i = [-1:2]){
