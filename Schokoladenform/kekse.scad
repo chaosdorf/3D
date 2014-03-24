@@ -44,8 +44,8 @@ module tafel(){
 
 module giessform(){
 	translate([0,0,4.1]) difference() {
-		cube([4*pch+12,pcw+12,15], center=true);
-		translate([0,0,1.26]) cube([4*55+10,64+10,12.5], center=true);
+		cube([4*pch+12,pcw+10,13], center=true);
+		translate([0,0,1]) cube([4*55+10,64+10,12.5], center=true);
 	}
 	translate([100,35,-1]) scale([0.8,0.8,1])
 		rotate([-90,180,0]) writecube("CCCD v1.1", [0,0,0], 0);
