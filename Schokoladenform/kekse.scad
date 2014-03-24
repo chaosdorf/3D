@@ -1,12 +1,30 @@
 use <../Write.scad>
 
+// set your desired logo here. See below for supported logo functions
+module logo(){
+	logo_chaosknoten();
+}
+
+// piece width and height - not fully supported yet, do not change
 pch=55;
 pcw=66;
 
-module chaosknoten(){
+module logo_chaosknoten(){
 	translate([5.7,-6,1.6]) scale([7,7,1]) rotate([0,0,90])
 		linear_extrude(height = 1, center = true, convexity = 10)
 		import (file = "chaosknoten.dxf");
+}
+
+module logo_cthulhu(){
+	translate([-33.5,-8.1,1.6]) scale([1.1,1.1,1]) rotate([0,0,0])
+		linear_extrude(height = 1, center = true, convexity = 10)
+		import (file = "cthulhu.dxf");
+}
+
+module logo_usbknoten(){
+	translate([5.7,-6,1.6]) scale([7,7,1]) rotate([0,0,90])
+		linear_extrude(height = 1, center = true, convexity = 10)
+		import (file = "usbknoten.dxf");
 }
 
 module tafel(){
@@ -20,7 +38,7 @@ module tafel(){
 		}
 	}
 	for (i = [-1:2]){
-		translate([i*pch-15,-20,6]) chaosknoten();
+		translate([i*pch-15,-20,6]) logo();
 	}
 }
 
