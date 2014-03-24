@@ -1,3 +1,5 @@
+use <../Write.scad>
+
 module triforce(high,dia){
 	difference() {
 		cylinder(h=high, r1=dia, r2=dia*4/5, $fn=3);
@@ -19,9 +21,11 @@ module tafel(){
 
 module giessform(){
 	translate([0,0,5.1]) difference() {
-		cube([170,70,15], center=true);
+		cube([164,64,12], center=true);
 		translate([0,0,1.26]) cube([160,60,12.5], center=true);
 	}
+	#translate([50,27.5,0]) scale([0.8,0.8,1])
+		rotate([-90,180,0]) writecube("CCCD v1.0", [0,0,0], 0);
 }
 
 module alles(gf){
