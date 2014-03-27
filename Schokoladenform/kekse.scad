@@ -41,10 +41,10 @@ module tafel(){
 	difference() {
 		translate([0,0,2.75]) cube([4*pch,pcw,9.5], center=true);
 		for (i = [-2:2]){
-			translate([i*pch,0,8]) rotate([90,90,0]) cylinder(h=64, r=5, center=true, $fn=3);
+			translate([i*pch,0,8]) rotate([90,90,0]) cylinder(h=pcw, r=5, center=true, $fn=3);
 		}
 		for (i = [-1,1]){
-			translate([0,i*pcw/2,8]) rotate([0,90,0]) cylinder(h=4*55, r=5, center=true, $fn=3);
+			translate([0,i*pcw/2,8]) rotate([0,90,0]) cylinder(h=4*pch, r=5, center=true, $fn=3);
 		}
 	}
 	for (i = [-1:2]){
@@ -55,10 +55,10 @@ module tafel(){
 module giessform(){
 	translate([0,0,4.1]) difference() {
 		cube([4*pch+12,pcw+10,13], center=true);
-		translate([0,0,1]) cube([4*55+10,64+10,12.5], center=true);
+		translate([0,0,1]) cube([4*pch+10,pcw+8,12.5], center=true);
 	}
-	translate([100,35,-1.4]) scale([0.8,0.8,1])
-		rotate([-90,180,0]) writecube("CCCD v1.1", [0,0,0], 0);
+	translate([pch*1.7,35,-1.4]) scale([0.8,0.8,1])
+		rotate([-90,180,0]) writecube("CCCD v1.2", [0,0,0], 0);
 }
 
 module alles(gf){
