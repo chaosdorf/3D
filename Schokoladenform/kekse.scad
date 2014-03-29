@@ -4,7 +4,6 @@ use <../Write.scad>
 module logo(){
 	logo_chaosknoten();
 	//logo_cthulhu();
-	//logo_fillin();
 	//logo_usbknoten();
 }
 
@@ -28,13 +27,6 @@ module logo_usbknoten(){
 	translate([5.7,-6,1.6]) scale([7,7,1]) rotate([0,0,90])
 		linear_extrude(height = 1, center = true, convexity = 10)
 		import (file = "usbknoten.dxf");
-}
-
-module logo_fillin(){
-	difference() {
-		translate([-37.4,-10.4,1.5]) cube([pch-5.2,pcw-5.2,0.2]);
-		translate([-37.2,-10.2,1.4]) cube([pch-5.6,pcw-5.6,0.5]);
-	}
 }
 
 module tafel(){
