@@ -1,5 +1,8 @@
 use <../Write.scad>
 
+giessform = true;
+plaform = false;
+
 module triforce(high,dia){
 	difference() {
 		cylinder(h=high, r1=dia, r2=dia*4/5, $fn=3);
@@ -17,6 +20,11 @@ module tafel(){
 			translate([0,i*25,8]) rotate([0,90,0]) cylinder(h=151, r=5, center=true, $fn=3);
 		}
 	}
+	for (i= [-1,1]){
+		for (j = [-5:4]){
+			translate([j*15+6.5,i*12.5,6]) triforce(2,5);
+		}
+	}
 }
 
 module giessform(){
@@ -24,22 +32,29 @@ module giessform(){
 		cube([164,64,12], center=true);
 		translate([0,0,1.26]) cube([160,60,12.5], center=true);
 	}
-	#translate([50,27.5,0]) scale([0.8,0.8,1])
+	translate([50,27.5,0]) scale([0.8,0.8,1])
 		rotate([-90,180,0]) writecube("CCCD v1.0", [0,0,0], 0);
 }
 
-module alles(gf){
+module plaform(){
+	
+}
+
+module alles(){
 	union(){
 		tafel();
-		if (gf){
+		if (giessform){
 			giessform();
-		}
-		for (i= [-1,1]){
-			for (j = [-5:4]){
-				translate([j*15+6.5,i*12.5,6]) triforce(2,5);
-			}
 		}
 	}
 }
 
-alles(true);
+if (plaform) {
+	rotate([0,180,0]) difference(){
+		translate([0,0,4.21]) cube([152,52,8.4], center = true);
+		alles();
+	}
+}
+else {
+	alles();
+}
