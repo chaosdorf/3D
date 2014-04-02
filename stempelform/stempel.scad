@@ -15,4 +15,7 @@ module stamp_cccac(){
 	}
 }
 
-scale([3,3,1]) stamp_cccac();
+scale([4.5,4.5,1]) stamp_cccac();
+
+// hackspace passport stamps are 47x41mm
+//translate([0,0,-10]) cube([47,41,9.9]);
