@@ -1,9 +1,12 @@
 use <../Write.scad>
 
+giessform = true;
+plaform = false;
+
 // set your desired logo here. See below for supported logo functions
 module logo(){
-	logo_chaosknoten();
-	//logo_cthulhu();
+	//logo_chaosknoten();
+	logo_cthulhu();
 	//logo_usbknoten();
 }
 
@@ -53,14 +56,22 @@ module giessform(){
 		rotate([-90,180,0]) writecube("CCCD v1.2", [0,0,0], 0);
 }
 
-module alles(gf){
+module alles(){
 	union(){
 		tafel();
-		if (gf){
+		if (giessform){
 			giessform();
 		}
 	}
 }
 
 
-alles(true);
+if (plaform) {
+	rotate([180,0,0]) difference(){
+		translate([-2*pch-1,-pcw/2-1,0.1]) cube([4*pch+2,pcw+2,9]);
+		alles();
+	}
+}
+else {
+	alles();
+}
