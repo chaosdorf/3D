@@ -4,7 +4,8 @@ foot = false;
 
 // end of configuration
 
-spacing = foot ?   6*scale : 4;
+spacing = foot ?   2.5*scale : 4;
+boxheight = foot ? 47.5 : 52.5;
 
 module boundingboxl(){
 	if (foot) {
@@ -72,8 +73,8 @@ module moldr(){
 
 translate([-8*scale-spacing,0,7.5*scale]) scale([scale,scale,scale])
 	rotate([90,90,0]) moldl();
-translate([8*scale+spacing,0,7.5*scale])  scale([scale,scale,scale])
-	rotate([90,-90,0]) moldr();
+translate([8*scale+spacing,-boxheight*scale,7.5*scale])  scale([scale,scale,scale])
+	rotate([90,-90,180]) moldr();
 
 // use for alignment testing
 //translate([0,0,7.5*scale]) scale([scale,scale,scale])
