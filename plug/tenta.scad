@@ -11,7 +11,7 @@ module boundingboxl(){
 	if (foot) {
 		difference(){
 			union(){
-				translate([0,-7.5,-5.1]) cube([7.5,15.5,57.5]);
+				translate([0,-7.8,-5.1]) cube([7.5,15.8,57.5]);
 				intersection(){
 					translate([0,-11.5,-5.1]) cube([7.5,23.5,20]);
 					translate([0,-7.5,-20.2]) rotate([16,0,0]) cube([7.5,24.5,37]);
@@ -22,7 +22,7 @@ module boundingboxl(){
 		}
 	}
 	else {
-		translate([0,-7.5,0.1]) cube([7.5,15.5,52.5]);
+		translate([0,-7.8,0.1]) cube([7.5,15.8,52.5]);
 	}
 }
 
@@ -30,7 +30,7 @@ module boundingboxr(){
 	if (foot) {
 		difference(){
 			union(){
-				translate([-7.5,-7.5,-5.1]) cube([7.5,15.5,57.5]);
+				translate([-7.5,-7.8,-5.1]) cube([7.5,15.8,57.5]);
 				intersection(){
 					translate([-7.5,-11.5,-5.1]) cube([7.5,23.5,20]);
 					translate([-7.5,-7.5,-20.2]) rotate([16,0,0]) cube([7.5,24.5,37]);
@@ -41,7 +41,7 @@ module boundingboxr(){
 		}
 	}
 	else {
-		translate([-7.5,-7.5,0.1]) cube([7.5,15.5,52.5]);
+		translate([-7.5,-7.8,0.1]) cube([7.5,15.8,52.5]);
 	}
 }
 
