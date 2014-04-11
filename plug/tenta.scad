@@ -49,7 +49,7 @@ module moldl(){
 	difference(){
 		boundingboxl();
 		union(){
-			import("makies_tentacle.stl");
+			rotate([0,0,-3.5]) import("makies_tentacle.stl");
 			translate([0,0.7,0]) cylinder(r1=5,r2=4.1,h=20,$fn=100);
 			translate([-0.1,-5,40]) cube([1,2,10]);
 			translate([-0.1,7,17]) cube([1,2,11]);
@@ -62,7 +62,7 @@ module moldr(){
 		difference(){
 			boundingboxr();
 			union(){
-				import("makies_tentacle.stl");
+				rotate([0,0,-3.5]) import("makies_tentacle.stl");
 				translate([0,0.7,0]) cylinder(r1=5,r2=4.1,h=20,$fn=100);
 			}
 		}
@@ -71,13 +71,18 @@ module moldr(){
 	}
 }
 
+
 translate([-8*scale-spacing,0,7.5*scale]) scale([scale,scale,scale])
 	rotate([90,90,0]) moldl();
 translate([8*scale+spacing,-boxheight*scale,7.5*scale])  scale([scale,scale,scale])
 	rotate([90,-90,180]) moldr();
 
+
+
 // use for alignment testing
-//translate([0,0,7.5*scale]) scale([scale,scale,scale])
-//	rotate([90,180,0]) moldl();
-//translate([0,0,7.5*scale])  scale([scale,scale,scale])
-//	rotate([90,180,0]) moldr();
+/*
+translate([0,0,7.5*scale]) scale([scale,scale,scale])
+	rotate([90,180,0]) moldl();
+translate([0,0,7.5*scale])  scale([scale,scale,scale])
+	rotate([90,180,0]) moldr();
+*/
