@@ -3,13 +3,13 @@ _Name                          	Value
 WindowPosition	700+0
 Open File for Wipe	
 Activate Wipe	False
-Arrival X (mm):	-70.0
-Arrival Y (mm):	-50.0
-Arrival Z (mm):	50.0
-Departure X (mm):	-70.0
-Departure Y (mm):	-40.0
-Departure Z (mm):	50.0
-Wipe X (mm):	-70.0
-Wipe Y (mm):	-70.0
-Wipe Z (mm):	50.0
-Wipe Period (layers):	3
+Arrival X (mm):	10.0
+Arrival Y (mm):	20.0
+Arrival Z (mm):	0.0
+Departure X (mm):	200.0
+Departure Y (mm):	170.0
+Departure Z (mm):	0.0
+Wipe X (mm):	10.0
+Wipe Y (mm):	170.0
+Wipe Z (mm):	0.0
+Wipe Period (layers):	9999999
