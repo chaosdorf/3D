@@ -1,0 +1,9 @@
+Format is tab separated skeinforge settings.
+_Name                          	Value
+WindowPosition	370+43
+Open File for Skeinforge	M:/_ORCA-050/stl-export/cup-v2.stl
+analyze	False
+craft	True
+help	False
+meta	False
+profile	False

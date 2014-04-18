@@ -1,0 +1,9 @@
+Format is tab separated skeinforge settings.
+_Name                          	Value
+WindowPosition	191+41
+Open File for Skeinforge	M:/_ORCA-050/stl-export/arnitel-motor-plate-test-4pcs.stl
+analyze	False
+craft	True
+help	False
+meta	False
+profile	False

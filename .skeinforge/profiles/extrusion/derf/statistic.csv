@@ -1,0 +1,10 @@
+Format is tab separated statistic settings.
+_Name                          	Value
+WindowPosition	700+0
+Activate Statistic	True
+Machine Time ($/hour):	2.0
+Material ($/kg):	40.0
+Density (kg/m3):	800.0
+Open File to Generate Statistics for	
+Print Statistics	True
+Save Statistics	True
