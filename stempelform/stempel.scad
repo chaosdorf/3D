@@ -4,7 +4,7 @@ module stamp_cccac(){
 		translate([0,0,-0.3]) cube([9.5,7.6,0.3]);
 
 		// Logo
-		linear_extrude(height = 1, convexity = 10)
+		linear_extrude(height = 1.5, convexity = 10)
 			import(file = "cccac.dxf");
 
 		// Form
