@@ -1,6 +1,7 @@
 scale=3.0;
 
 foot = false;
+positioning_pins = true;
 
 // end of configuration
 
@@ -51,8 +52,10 @@ module moldl(){
 		union(){
 			rotate([0,0,-3.5]) import("makies_tentacle.stl");
 			translate([0,0.7,0]) cylinder(r1=5,r2=4.1,h=20,$fn=100);
-			translate([-0.1,-5,40]) cube([1,2,10]);
-			translate([-0.1,7,17]) cube([1,2,11]);
+			if (positioning_pins) {
+				translate([-0.1,-5,40]) cube([1,2,10]);
+				translate([-0.1,7,17]) cube([1,2,11]);
+			}
 		}
 	}
 }
@@ -66,8 +69,10 @@ module moldr(){
 				translate([0,0.7,0]) cylinder(r1=5,r2=4.1,h=20,$fn=100);
 			}
 		}
-		translate([-0.1,-5.05,40.05]) cube([0.95,1.9,9.9]);
-		translate([-0.1,7.05,17.05]) cube([0.95,0.95,10.9]);
+		if (positioning_pins) {
+			translate([-0.1,-5.05,40.05]) cube([0.95,1.9,9.9]);
+			translate([-0.1,7.05,17.05]) cube([0.95,0.95,10.9]);
+		}
 	}
 }
 
