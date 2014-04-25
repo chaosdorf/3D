@@ -1,9 +1,10 @@
 module stamp_cccac(){
 	union(){
 		// Grundplatte
-		translate([0,0,-0.3]) cube([9.5,7.6,0.3]);
+		translate([0,0,-0.3]) cube([9.5,7.6,0.5]);
 
 		// Logo
+		translate([-0.2, 0.1, 0]) scale([0.9, 0.9, 1])
 		linear_extrude(height = 1.5, convexity = 10)
 			import(file = "cccac.dxf");
 
