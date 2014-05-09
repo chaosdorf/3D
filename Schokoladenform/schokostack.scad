@@ -24,9 +24,9 @@ module unit() {
 		union(){
 			cube([bx, by, bz]);
 			translate([2, 0, bz]) cube([4.95, 1.9, 1.45]);
-			translate([2, dy + oy/2 + 0.1, bz]) cube([4.95, 1.9, 1.45]);
+			translate([2, by - 1.9 , bz]) cube([4.95, 1.9, 1.45]);
 			translate([bx - 7, 0, bz]) cube([4.95, 1.9, 1.45]);
-			translate([bx - 7, dy + oy/2 + 0.1, bz]) cube([4.95, 1.9, 1.45]);
+			translate([bx - 7, by - 1.9, bz]) cube([4.95, 1.9, 1.45]);
 		}
 		translate([2, 2, 2.01]) cube([bx - 4, by - 4, dz]);
 		translate([2, -0.01, -0.01]) cube([5, 2, 1.5]);
