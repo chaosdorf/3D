@@ -17,11 +17,11 @@ Infill Begin Rotation (degrees):	45.0
 Infill Begin Rotation Repeat (layers):	1
 Infill Odd Layer Extra Rotation (degrees):	90.0
 Grid Circular	False
-Grid Hexagonal	False
-Grid Rectangular	True
+Grid Hexagonal	True
+Grid Rectangular	False
 Line	False
 Infill Perimeter Overlap (ratio):	0.2
-Infill Solidity (ratio):	0.15
+Infill Solidity (ratio):	0.1
 Sharpest Angle (degrees):	60.0
 Solid Surface Thickness (layers):	3
 Lower Left	True

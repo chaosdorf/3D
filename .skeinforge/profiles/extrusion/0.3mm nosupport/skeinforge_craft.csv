@@ -17,7 +17,7 @@ drill	False
 dwindle	False
 export	False
 feed	False
-fill	False
+fill	True
 fillet	False
 flow	False
 home	False
@@ -32,7 +32,7 @@ multiply	False
 oozebane	False
 outset	False
 preface	False
-raft	True
+raft	False
 scale	False
 skin	False
 skirt	False
