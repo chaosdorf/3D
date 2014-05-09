@@ -17,7 +17,7 @@ drill	False
 dwindle	False
 export	False
 feed	False
-fill	False
+fill	True
 fillet	False
 flow	False
 home	False
@@ -38,7 +38,7 @@ skin	False
 skirt	False
 smooth	False
 speed	False
-splodge	True
+splodge	False
 stretch	False
 temperature	False
 tower	False
