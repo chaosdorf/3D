@@ -5,7 +5,7 @@ Open File for Dimension
 Activate Dimension	True
 Absolute Extrusion Distance	True
 Relative Extrusion Distance	False
-Extruder Retraction Speed (mm/s):	30.0
+Extruder Retraction Speed (mm/s):	60.0
 Filament Diameter (mm):	1.75
 Filament Packing Density (ratio):	1.0
 Maximum E Value before Reset (float):	91234.0
