@@ -129,8 +129,8 @@ module tafel() {
 
 module giessform(){
 	translate([0,0,6.1]) difference() {
-		cube([164,90,14], center=true);
-		translate([0,0,1.26]) cube([162,88,14.5], center=true);
+		cube([164,90,13], center=true);
+		translate([0,0,0.5]) cube([162,88,13], center=true);
 	}
 	translate([65,41.5,0.2]) scale([0.8,0.8,1])
 		rotate([-90,180,0]) writecube("GPN/CCCD v1.0", [0,0,0], 0);
