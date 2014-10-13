@@ -1,0 +1,4 @@
+#!/bin/zsh
+
+inkscape -E /tmp/intermediate.eps $1
+pstoedit -dt -f dxf:-polyaslines /tmp/intermediate.eps ${1:r}.dxf
